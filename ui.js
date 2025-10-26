@@ -7,6 +7,7 @@ import {
   handleSubmit,
   sendEditToAPI,
   updateNotesList,
+  filterNotes,
 } from "./app.js";
 
 const root = document.getElementById("app-root");
@@ -57,6 +58,11 @@ const NotesPage = `
             <br>
             <button type="submit">Registra Nota</button>
         </form>
+  
+  <div id="search-container">
+  <input type="text" placeholder="Buscar nas notas..." id="searchInput" />
+  </div>
+        
         <h2>Registros Anteriores</h2>
         <ul id="logList">
         </ul>
@@ -108,8 +114,12 @@ function attachNotesListeners() {
       content: noteContent,
     };
     handleSubmit(dataToSend);
+    updateNotesList();
   });
-  updateNotesList();
+
+  document.getElementById("searchInput")?.addEventListener("input", (e) => {
+    filterNotes(e.target.value);
+  });
 }
 
 function attachDeleteListeners() {

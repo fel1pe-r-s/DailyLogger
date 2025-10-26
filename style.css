@@ -237,3 +237,15 @@ margin-right:5px;
   padding: 10px; 
   margin-bottom: 5px;
 }
+
+#search-container{
+  margin: 20px 0;
+}
+#searchInput{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  box-sizing: border-box
+}

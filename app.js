@@ -1,6 +1,7 @@
 import { render, initApp, renderNotes } from "./ui.js";
 
 const noteText = document.getElementById("noteText");
+let noteCache = [];
 
 const TOKEN_KEY = "dailyLoggerToken";
 
@@ -40,6 +41,18 @@ function saveToken(token) {
 }
 function removeToken() {
   localStorage.removeItem(TOKEN_KEY);
+}
+
+export function filterNotes(searchTerm) {
+  const logList = document.getElementById("logList");
+  if (!logList) return;
+  const loweCaseSearchTerm = searchTerm.toLowerCase().trim();
+
+  const filteredNotes = noteCache.filter((note) =>
+    note.content.toLowerCase().includes(loweCaseSearchTerm)
+  );
+
+  renderNotes(filteredNotes);
 }
 
 export function getToken() {
@@ -186,7 +199,9 @@ export async function fetchNotes() {
     });
 
     if (response.ok) {
-      return await response.json();
+      const notes = await response.json();
+      noteCache = notes;
+      return notes;
     }
 
     return [];
