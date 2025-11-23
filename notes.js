@@ -14,11 +14,20 @@ export function handleCreateNote(req, res) {
   });
   req.on("end", () => {
     try {
-      const data = JSON.parse(body);
+      const { content, category, tags } = JSON.parse(body);
       const userId = req.user.userId;
+      let tagsArray = [];
+
+      if (Array.isArray(tags)) {
+        tagsArray = tags;
+      } else if (typeof tags === "string" && tags.trim() !== "") {
+        tagsArray = tags.split(",").map((tag) => tag.trim());
+      }
       const newNote = {
         id: Date.now(),
-        content: data.content.trim(),
+        content,
+        category: category || "Geral",
+        tags: tagsArray,
         timesTamp: new Date().toISOString(),
         userId,
       };
