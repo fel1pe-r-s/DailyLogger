@@ -1,13 +1,22 @@
 {
   "name": "dailylogger",
   "version": "1.0.0",
-  "description": "",
+  "description": "DailyLogger \u00e9 uma aplica\u00e7\u00e3o simples para registrar atividades di\u00e1rias, permitindo aos usu\u00e1rios criar contas, fazer login e gerenciar (criar, ler, atualizar e excluir) suas anota\u00e7\u00f5e...",
   "main": "server.js",
   "type": "module",
   "scripts": {
     "dev": "node server.js"
   },
-  "keywords": [],
+  "keywords": [
+    "autentica\u00e7\u00e3o",
+    "css",
+    "docker",
+    "html",
+    "javascript",
+    "jtw",
+    "markdown",
+    "node"
+  ],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
