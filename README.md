@@ -1,4 +1,6 @@
-# DailyLogger
+**Tags**: #Autenticação&autorização #CSS #Docker #Html #JTW #JavaScript #Markdown #Node
+
+#DailyLogger # DailyLogger
 
 DailyLogger é uma aplicação simples para registrar atividades diárias, permitindo aos usuários criar contas, fazer login e gerenciar (criar, ler, atualizar e excluir) suas anotações pessoais.
 
